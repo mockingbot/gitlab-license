@@ -21,7 +21,7 @@ module Gitlab
         end
 
         # Encrypt the data using symmetric AES encryption.
-        cipher = OpenSSL::Cipher::AES128.new(:CBC)
+        cipher = OpenSSL::Cipher::AES256.new(:CBC)
         cipher.encrypt
         aes_key = cipher.random_key
         aes_iv  = cipher.random_iv
@@ -70,7 +70,7 @@ module Gitlab
         end
 
         # Decrypt the data using symmetric AES encryption.
-        cipher = OpenSSL::Cipher::AES128.new(:CBC)
+        cipher = OpenSSL::Cipher::AES256.new(:CBC)
         cipher.decrypt
 
         begin
